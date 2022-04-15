@@ -145,13 +145,6 @@ public class Authentication extends Globalmembers {
 		}while(counter < 8);
 		System.out.println("collection complete");
 	}
-	
-//	private static boolean validateName(String flag) {
-//		if(flag.length() < 3 || Integer.parseInt(String.valueOf(flag.charAt(0))) > -1000 ) {
-//			inputValidation("Input too short!");
-//		}
-//		return false;
-//	}
 
 	public static boolean matchTest(String password, String password2) {
 		boolean flag = false;
