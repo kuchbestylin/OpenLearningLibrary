@@ -1,7 +1,7 @@
-import java.text.ParseException;
+
 import java.util.Scanner;
 
-public class Authentication extends Globalmembers {
+public abstract class Authentication extends GlobalMembers {
 	private static String fName;
 	private static String sName;
 	private static String homeAddress;
@@ -20,25 +20,23 @@ public class Authentication extends Globalmembers {
 			{"password2",""}
 	};
 	
-	protected static void register(Scanner sc){
+	protected final static void register(Scanner sc){
 		cls();
 		attributeCollection(sc);
 		System.out.println("got here");
-		new DataAccessObject(fName, sName, homeAddress, dOB, email, password);
+		new DatabaseUtility(fName, sName, homeAddress, dOB, email, password);
 		System.out.println("End to end");
 	}
 
-	protected static void signIn(Scanner sc) {
+	protected final static void signIn(Scanner sc) {
 		cls();
 		System.out.print("\n\t\tEnter Email: ");
-		email = sc.next();
+		sc.nextLine();
+		email = sc.nextLine();
 		System.out.print("\n\n\t\tEnter Password: ");
-		password = sc.next();
-		
-	}
-
-	public Authentication() {
-		super();
+		password = sc.nextLine();
+		new DatabaseUtility(email, password);
+		sleep(2900);
 	}
 	
 	private static void attributeCollection(Scanner sc) {
